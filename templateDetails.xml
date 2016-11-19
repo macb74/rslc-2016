@@ -65,6 +65,7 @@
 		<position>navhelper</position>
 		<position>breadcrumbs</position>
 		<position>off-canvas</position>
+		<position>slideshow</position>
 		<position>sidebar-1</position>
 		<position>sidebar-2</position>
 		<position>mast-col</position>
