@@ -1,10 +1,10 @@
 <?php
+defined('_JEXEC') or die;
 
 $width = 1120 * 1.5;
 $width = 1180;
 $height = 630 * 0.7;
 $height = 400;
-
 ?>
 <script type="text/javascript" src="<?php echo JURI::base().'/templates/'.$app->getTemplate().'/js/jssor.slider.min.js'; ?>"></script>
     <!-- #region Jssor Slider Begin -->
@@ -139,6 +139,27 @@ $height = 400;
             <div style="position:absolute;display:block;background:url('<?php echo JURI::base().'/templates/'.$app->getTemplate().'/images/jssor/loading.gif'; ?>') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
 
+<?php
+jimport( 'joomla.application.module.helper' );
+if (count(JModuleHelper::getModules('headnews'))) {
+?>
+        <div id="headnews" style="background: rgba(0,0,0,0.3); border-radius: 10px; color: #ffffff; position: absolute;top: 250px; left: 20%; right: 20%; z-index: 100;">
+		<div class="headnews" style="margin: 15px;">
+	
+	<?php
+	//echo "<pre>";
+	//print_r(JModuleHelper::getModules('headnews'));
+	$module = JModuleHelper::getModule('mod_articles_news', 'HeaderNews');
+	$attribs['style'] = 'none';
+	//echo "</pre>";
+	echo JModuleHelper::renderModule( $module, $attribs );
+	?>
+	
+		</div>
+	</div>
+<?php
+}
+?>
 
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; overflow: hidden;">
             <div data-p="112.50" style="display: none;">
@@ -169,7 +190,5 @@ $height = 400;
         <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
         <a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
     </div>
-
-
 
     <!-- #endregion Jssor Slider End -->
