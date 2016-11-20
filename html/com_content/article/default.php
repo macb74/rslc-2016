@@ -56,7 +56,7 @@ JHtml::_('bootstrap.tooltip');
   <?php if ($topInfo || $icons) : ?>
   <aside class="article-aside clearfix">
     <?php if ($topInfo): ?>
-      <?php echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
+      <?php echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above'));?>
     <?php endif; ?>
     
     <?php if ($icons): ?>

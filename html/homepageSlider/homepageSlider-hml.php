@@ -1,10 +1,36 @@
 <?php
 defined('_JEXEC') or die;
 
-$width = 1180;
-$height = 400;
+$width = 1680;
+$height = 1100;
 
 ?>
+
+<link href="https://fonts.googleapis.com/css?family=Orbitron|Oswald" rel="stylesheet">
+
+<style>
+  .page-masthead .container { width: 100% !important; }
+</style>
+
+
+<script>
+  jQuery(document).ready(function ($) {
+    // Navigation beim laden ausblenden
+    $( ".navbar" ).hide();
+
+
+    // Navigation ein- /ausblenden
+    $(window).scroll(function() {
+      var height = $(window).scrollTop();
+      if(height  > 10) {
+        $('.navbar').fadeIn('slow');
+      } else {
+        $('.navbar').fadeOut('slow');
+      }
+    });
+  });
+</script>
+
 <script type="text/javascript" src="<?php echo JURI::base().'/templates/'.$app->getTemplate().'/js/jssor.slider.min.js'; ?>"></script>
     <!-- #region Jssor Slider Begin -->
 
@@ -130,7 +156,7 @@ $height = 400;
         .jssora12r.jssora12rdn { background-position: -315px -37px; }
     </style>
 
-    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; overflow: hidden; visibility: hidden;">
+    <div id="jssor_1" class="hml-slider" style="width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; visibility: hidden;">
         
 	<!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -143,17 +169,14 @@ $height = 400;
 jimport( 'joomla.application.module.helper' );
 if (count(JModuleHelper::getModules('headnews'))) {
 ?>
-        <div id="headnews" style="background: rgba(0,0,0,0.3); border-radius: 10px; color: #ffffff; position: absolute; bottom: 10px; left: 20%; right: 20%; z-index: 100;">
+        <div id="headnews" style="background: rgba(0,0,0,0.4); border-radius: 20px; color: #ffffff; position: absolute; top: 500px; left: 10%; right: 10%; z-index: 100;">
 		<div class="headnews-text" style="margin: 15px;">
 	
-	<?php
-	//echo "<pre>";
-	//print_r(JModuleHelper::getModules('headnews'));
-	$module = JModuleHelper::getModule('mod_articles_news', 'HeaderNews');
-	$attribs['style'] = 'none';
-	//echo "</pre>";
-	echo JModuleHelper::renderModule( $module, $attribs );
-	?>
+			<div class="home-head-text">Holzkirchner Marktlauf</div>
+			<div class="home-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
+			<div class="go-box">
+				<div class="go-text">Los geht's</div>			
+			</div>
 	
 		</div>
 	</div>
@@ -171,22 +194,8 @@ if (count(JModuleHelper::getModules('headnews'))) {
 
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; overflow: hidden;">
             <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-1.jpg" />
+                <img data-u="image" src="/cms/images/stories/marktlauf/HML_head_3.JPG" />
             </div>
-
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-2.jpg" />
-
-            </div>
-
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-3.jpg" />
-            </div>
-
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-4.jpg" />
-            </div>
-
         </div>
         <!-- Bullet Navigator -->
         <!-- <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1"> -->
@@ -194,9 +203,18 @@ if (count(JModuleHelper::getModules('headnews'))) {
             <!-- <div data-u="prototype" style="width:16px;height:16px;"></div> -->
         <!-- </div> -->
         <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
-        <a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
+        <!-- <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>  -->
+        <!-- <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>  -->
+        <!-- <a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>  -->
     </div>
+
+
+
+<i class="fa fa-info-circle" aria-hidden="true"></i>
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+<i class="fa fa-file-text-o" aria-hidden="true"></i>
+
+
+
 
     <!-- #endregion Jssor Slider End -->

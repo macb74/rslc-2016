@@ -106,6 +106,13 @@ $icons = $params->get('access-edit') || $params->get('show_print_icon') || $para
 						</a>
 					</section>
 				<?php endif; ?>
+
+		    <aside class="article-aside clearfix">
+		      <?php //if ($topInfo): ?>
+		      <?php //echo JLayoutHelper::render('joomla.content.info_block.block', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
+		      <?php //endif; ?>
+		    </aside>
+
 	</article>
 	<!-- //Article -->
 
