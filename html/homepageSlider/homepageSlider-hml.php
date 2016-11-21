@@ -28,7 +28,16 @@ $height = 1100;
         $('.navbar').fadeOut('slow');
       }
     });
+
+
+    $("#los").click(function() {
+      $('html, body').animate({
+          scrollTop: $("#hml-buttons").offset().top - 80
+      }, 1000);
+    });
   });
+
+
 </script>
 
 <script type="text/javascript" src="<?php echo JURI::base().'/templates/'.$app->getTemplate().'/js/jssor.slider.min.js'; ?>"></script>
@@ -164,33 +173,17 @@ $height = 1100;
             <div style="position:absolute;display:block;background:url('<?php echo JURI::base().'/templates/'.$app->getTemplate().'/images/jssor/loading.gif'; ?>') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
 
-
-<?php
-jimport( 'joomla.application.module.helper' );
-if (count(JModuleHelper::getModules('headnews'))) {
-?>
         <div id="headnews" style="background: rgba(0,0,0,0.4); border-radius: 20px; color: #ffffff; position: absolute; top: 500px; left: 10%; right: 10%; z-index: 100;">
 		<div class="headnews-text" style="margin: 15px;">
 	
 			<div class="home-head-text">Holzkirchner Marktlauf</div>
 			<div class="home-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
 			<div class="go-box">
-				<div class="go-text">Los geht's</div>			
+				<div id="los" class="go-text">Los geht's</div>		
 			</div>
 	
 		</div>
 	</div>
-<?php
-}
-?>
-
-        <div id="social" style="border-radius: 5px; position: absolute; bottom: 10px; right: 10px; z-index: 100;">
-		<div class="social-icons" style="margin: 5px;">
-			<a href="https://www.facebook.com/RSLC-Holzkirchen-320555464552/?fref=ts"><i class="fa fa-facebook-square fa-2x social-fb" aria-hidden="true"></i></a>&nbsp;
-			<a href="https://www.youtube.com/channel/UC1QGeJ32nlJg1CG7tXbl2PA"><i class="fa fa-youtube-square fa-2x social-yt" aria-hidden="true"></i></a>
-		</div>
-	</div>
-
 
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; overflow: hidden;">
             <div data-p="112.50" style="display: none;">
@@ -209,12 +202,6 @@ if (count(JModuleHelper::getModules('headnews'))) {
     </div>
 
 
-
-<i class="fa fa-info-circle" aria-hidden="true"></i>
-<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-<i class="fa fa-file-text-o" aria-hidden="true"></i>
-
-
-
-
     <!-- #endregion Jssor Slider End -->
+
+

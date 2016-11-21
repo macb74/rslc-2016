@@ -2,6 +2,10 @@
 .page-masthead .container { width: 100% !important; }
 */
 
+h5, .h5 {
+    font-size: 15px;
+}
+
 .page-masthead .row-feature { padding: 0px 0px 10px 0px; }
 
 .slideshow {
@@ -91,6 +95,18 @@ article p {
 .go-text {
   font-family: 'Orbitron', sans-serif;
   font-size: 40px;
+}
+
+.img-responsive {
+  margin: 0 auto;
+}
+
+.top-space-medium {
+  margin-top: 50px;
+}
+
+#hml-buttons {
+  margin-top: -50px;
 }
 
 /*
