@@ -1,10 +1,55 @@
 <?php
 defined('_JEXEC') or die;
 
-$width = 1180;
-$height = 400;
+$width = 1680;
+$height = 1100;
 
 ?>
+
+<link href="https://fonts.googleapis.com/css?family=Orbitron|Oswald" rel="stylesheet">
+
+<style>
+  .page-masthead .container { width: 100% !important; }
+</style>
+
+
+<script>
+  jQuery(document).ready(function ($) {
+    // Navigation beim laden ausblenden
+    $( ".navbar" ).hide();
+
+
+    // Navigation ein- /ausblenden
+    $(window).scroll(function() {
+      var height = $(window).scrollTop();
+      if(height  > 10) {
+        $('.navbar').fadeIn('slow');
+      } else {
+        $('.navbar').fadeOut('slow');
+      }
+    });
+
+
+    $("#los").click(function() {
+      $('html, body').animate({
+          scrollTop: $("#hml-buttons").offset().top - 80
+      }, 1000);
+    });
+
+
+    //überschreiben des Home Link
+    var hmlLink = '<a href="/cms/lauf/marktlauf.html" title="RSCL Holzkichen e.V.">' +
+                  '<img class="logo-img" src="/cms/images/stories/home/rslc_logo_kl.jpg" alt="RSCL Holzkichen e.V.">' +
+                  '<span>RSCL Holzkichen e.V.</span></a>';
+   
+    $( ".logo-image" ).html(hmlLink);
+
+  });
+
+
+
+</script>
+
 <script type="text/javascript" src="<?php echo JURI::base().'/templates/'.$app->getTemplate().'/js/jssor.slider.min.js'; ?>"></script>
     <!-- #region Jssor Slider Begin -->
 
@@ -130,7 +175,7 @@ $height = 400;
         .jssora12r.jssora12rdn { background-position: -315px -37px; }
     </style>
 
-    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; overflow: hidden; visibility: hidden;">
+    <div id="jssor_1" class="hml-slider" style="width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; visibility: hidden;">
         
 	<!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -138,55 +183,22 @@ $height = 400;
             <div style="position:absolute;display:block;background:url('<?php echo JURI::base().'/templates/'.$app->getTemplate().'/images/jssor/loading.gif'; ?>') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
 
-
-<?php
-jimport( 'joomla.application.module.helper' );
-if (count(JModuleHelper::getModules('headnews'))) {
-?>
-        <div id="headnews" style="background: rgba(0,0,0,0.3); border-radius: 10px; color: #ffffff; position: absolute; bottom: 10px; left: 20%; right: 20%; z-index: 100;">
+        <div id="headnews" style="background: rgba(0,0,0,0.5); border-radius: 20px; color: #ffffff; position: absolute; top: 500px; left: 10%; right: 10%; z-index: 100;">
 		<div class="headnews-text" style="margin: 15px;">
 	
-	<?php
-	//echo "<pre>";
-	//print_r(JModuleHelper::getModules('headnews'));
-	$module = JModuleHelper::getModule('mod_articles_news', 'HeaderNews');
-	$attribs['style'] = 'none';
-	//echo "</pre>";
-	echo JModuleHelper::renderModule( $module, $attribs );
-	?>
+			<div class="home-head-text">Holzkirchner Marktlauf</div>
+			<div class="home-text">Eine der gr&ouml;&szlig;ten Laufveranstaltungen im Oberland</div>
+			<div class="go-box">
+				<div id="los" class="go-text">Los geht's</div>		
+			</div>
 	
 		</div>
 	</div>
-<?php
-}
-?>
-
-        <div id="social" style="border-radius: 5px; position: absolute; bottom: 10px; right: 10px; z-index: 100;">
-		<div class="social-icons" style="margin: 5px;">
-			<a href="https://www.facebook.com/RSLC-Holzkirchen-320555464552/?fref=ts"><i class="fa fa-facebook-square fa-2x social-fb" aria-hidden="true"></i></a>&nbsp;
-			<a href="https://www.youtube.com/channel/UC1QGeJ32nlJg1CG7tXbl2PA"><i class="fa fa-youtube-square fa-2x social-yt" aria-hidden="true"></i></a>
-		</div>
-	</div>
-
 
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: <?php echo $width; ?>px; height: <?php echo $height; ?>px; overflow: hidden;">
             <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-1.jpg" />
+                <img data-u="image" src="/cms/images/stories/marktlauf/HML_head_2.JPG" />
             </div>
-
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-2.jpg" />
-
-            </div>
-
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-3.jpg" />
-            </div>
-
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="/cms/images/stories/home/header-4.jpg" />
-            </div>
-
         </div>
         <!-- Bullet Navigator -->
         <!-- <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1"> -->
@@ -194,9 +206,12 @@ if (count(JModuleHelper::getModules('headnews'))) {
             <!-- <div data-u="prototype" style="width:16px;height:16px;"></div> -->
         <!-- </div> -->
         <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
-        <a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
+        <!-- <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>  -->
+        <!-- <span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>  -->
+        <!-- <a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>  -->
     </div>
 
+
     <!-- #endregion Jssor Slider End -->
+
+
